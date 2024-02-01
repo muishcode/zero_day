@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Data Flow Diagram</title>
+  <script type="text/javascript">
+    function init() {
+      if (window.goSamples) goSamples(); // init for these samples -- you don't need to call this
+      var $ = go.GraphObject.make;
+      myDiagram =
+        $(go.Diagram, "myDiagramDiv", {
+          "undoManager.isEnabled": true
+        });
+      myDiagram.nodeTemplate =
+        $(go.Node, "Auto", {
+            locationSpot: go.Spot.Center
+          },
+          $(go.Shape, "RoundedRectangle", {
+            parameter1: 20
+          }, new go.Binding("fill", "color")),
+          $(go.TextBlock, {
+              margin: 8
+            },
+            new go.Binding("text", "key"))
+        );
+      myDiagram.linkTemplate =
+        $(go.Link, {
+            routing: go.Link.AvoidsNodes,
+            curve: go.Link.JumpOver,
+            corner: 5,
+            toShortLength: 4
+          },
+          $(go.Shape, {
+            strokeWidth: 3,
+            stroke: "#424242"
+          })
+        );
+      myDiagram.model =
+        $(go.GraphLinksModel, {
+          linkFromPortIdProperty: "fromPort",
+          linkToPortIdProperty: "toPort",
+          nodeDataArray: [{
+              key: "1",
+              color: "#FFD700"
+            },
+            {
+              key: "2",
+              color: "#FFD700"
+            },
+            {
+              key: "3",
+              color: "#FFD700"
+            },
+            {
+              key: "4",
+              color: "#FFD700"
+            },
+            {
+              key: "D",
+              color: "#00BFFF"
+            },
+            {
+              key: "5",
+              color: "#00BFFF"
+            },
+            {
+              key: "6",
+              color: "#00BFFF"
+            },
+            {
+              key: "7",
+              color: "#90EE90"
+            },
+            {
+              key: "8",
+              color: "#00BFFF"
+            },
+            {
+              key: "9",
+              color: "#00BFFF"
+            },
+            {
+              key: "10",
+              color: "#90EE90"
+            },
+            {
+              key: "11",
+              color: "#90EE90"
+            },
+            {
+              key: "12",
+              color: "#00BFFF"
+            },
+            {
+              key: "13",
+              color: "#00BFFF"
+            },
+            {
+              key: "14",
+              color: "#00BFFF"
+            },
+            {
+              key: "15",
+              color: "#424242"
+            },
+            {
+              key: "16",
+              color: "#424242"
+            },
+            {
+              key: "17",
+              color: "#424242"
+            },
+            {
+              key: "18",
+              color: "#424242"
+            },
+            {
+              key: "19",
+              color: "#424242"
+            },
+            {
+              key: "20",
+              color: "#424242"
+            },
+            {
+              key: "21",
+              color: "#424242"
+            },
+            {
+              key: "22",
+              color: "#424242"
+            },
+            {
+              key: "23",
+              color: "#424242"
+            },
+            {
+              key: "24",
+              color: "#424242"
+            },
+            {
+              key: "25",
+              color: "#424242"
+            },
+            {
+              key: "26",
+              color: "#424242"
+            },
+            {
+              key: "27",
+              color: "#424242"
+            },
+            {
+              key: "28",
+              color: "#424242"
+            },
+            {
+              key: "29",
+              color: "#424242"
+            },
+            {
+              key: "30",
+              color: "#424242"
+            }
+          ],
+          linkDataArray: [{
+              from: "1",
+              to: "2",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "2",
+              to: "3",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "3",
+              to: "4",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "3",
+              to: "3",
+              fromPort: "R",
+              toPort: "R"
+            },
+            {
+              from: "5",
+              to: "7",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "7",
+              to: "6",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "6",
+              to: "9",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "9",
+              to: "8",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "8",
+              to: "9",
+              fromPort: "R",
+              toPort: "R"
+            },
+            {
+              from: "10",
+              to: "5",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "6",
+              to: "10",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "5",
+              to: "11",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "11",
+              to: "12",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "12",
+              to: "13",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "6",
+              to: "13",
+              fromPort: "R",
+              toPort: "R"
+            },
+            {
+              from: "14",
+              to: "5",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "6",
+              to: "14",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "9",
+              to: "6",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "13",
+              to: "14",
+              fromPort: "B",
+              toPort: "T"
+            },
+            {
+              from: "5",
+              to: "11",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "11",
+              to: "12",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "12",
+              to: "13",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "6",
+              to: "13",
+              fromPort: "R",
+              toPort: "R"
+            },
+            {
+              from: "14",
+              to: "5",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "6",
+              to: "14",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "9",
+              to: "6",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "13",
+              to: "14",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "5",
+              to: "16",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "7",
+              to: "17",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "6",
+              to: "18",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "9",
+              to: "19",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "8",
+              to: "20",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "10",
+              to: "21",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "6",
+              to: "22",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "5",
+              to: "23",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "11",
+              to: "24",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "12",
+              to: "25",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "13",
+              to: "26",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "6",
+              to: "27",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "5",
+              to: "28",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "6",
+              to: "29",
+              fromPort: "L",
+              toPort: "L"
+            },
+            {
+              from: "9",
+              to: "30",
+              fromPort: "L",
+              toPort: "L"
+            }
+          ]
+        });
+    }
+  </script>
+</head>
+
+<body onload="init()">
+  <div id="myDiagramDiv" style="height:600px; background-color: white;"></div>
+</body>
+
+</html>
